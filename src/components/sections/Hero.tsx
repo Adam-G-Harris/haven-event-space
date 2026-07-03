@@ -89,14 +89,14 @@ export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
             <span className="block">overlooked.</span>
           </h1>
 
-          {/* Body */}
+          // Body
           <p className="font-body text-[13px] sm:text-[14px] font-light leading-[1.9] text-white/80 max-w-[420px] mb-8">
             Kansas City&apos;s most technically advanced event venue. Architectural
             design. Cinematic lighting. Immersive sound. 40 private acres —
             exclusively yours.
           </p>
 
-          {/* Actions */}
+          // Actions
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <Link
               href="https://calendly.com/thehaveneventspace"
@@ -115,7 +115,7 @@ export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
           </div>
         </div>
 
-        {/* Stats strip */}
+        // Stats strip
         <div className="grid grid-cols-4 border-t border-white/15 bg-black/40 backdrop-blur-sm">
           {STATS.map((stat, i) => (
             <div
