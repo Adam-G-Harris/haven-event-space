@@ -19,7 +19,7 @@ styles — Tailwind utilities, base styles, theme tokens — without `!important
 
 ## Design
 
-### 1. New file: `src/app/overrides.css`
+### 1. New file: `src/app/custom.css`
 
 - Plain, unlayered CSS — no `@layer` wrapper (that's the guarantee).
 - Header comment documents the cascade rule above and the inline-style caveat,
@@ -31,7 +31,7 @@ styles — Tailwind utilities, base styles, theme tokens — without `!important
 
 ### 2. `src/app/layout.tsx`
 
-Add `import "./overrides.css";` directly after `import "./globals.css";`.
+Add `import "./custom.css";` directly after `import "./globals.css";`.
 This is the only change to existing code.
 
 ### 3. Related cleanup: unused import in `Hero.tsx`
@@ -44,7 +44,7 @@ of this change. (Re-add it when `<HeroStats />` is re-enabled.)
 
 | Decision | Choice | Why |
 | --- | --- | --- |
-| File name | `overrides.css` | States its purpose better than `custom.css` |
+| File name | `custom.css` | User preference — reads as the hand-written CSS spot |
 | Mechanism | Unlayered file imported last | Guaranteed to beat all Tailwind layers, no `!important` |
 | Rejected: region at bottom of `globals.css` | No | A region can later be accidentally moved into `@layer`, silently breaking the guarantee |
 | Rejected: `@utility` / `!important` | No | `@utility` is for defining new utilities, not overriding; `!important` fights future overrides |
@@ -52,6 +52,6 @@ of this change. (Re-add it when `<HeroStats />` is re-enabled.)
 ## Verification
 
 - `npm run build` and `npm run lint` pass with the new file and import in place.
-- Manual cascade check: add one temporary rule to `overrides.css` (e.g. restyle a
+- Manual cascade check: add one temporary rule to `custom.css` (e.g. restyle a
   Tailwind-styled element), confirm in the dev browser that it wins, then remove it.
 - Confirm the commented-out examples do not emit CSS.
