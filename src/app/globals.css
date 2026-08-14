@@ -26,3 +26,13 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+/* Custom functional utilities.
+   Tailwind only processes @utility directives in this entry stylesheet
+   (the file with @import "tailwindcss") — NOT in custom.css.
+   pad-N resolves against the spacing scale (--spacing = 0.25rem):
+   pad-12 = 12 × 0.25rem = 3rem. Supports variants (md:pad-12,
+   hover:pad-8) and is emitted on demand when a source file uses it. */
+@utility pad-* {
+  padding: calc(var(--spacing) * --value(integer));
+}

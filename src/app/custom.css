@@ -1,28 +1,5 @@
-/* ============================================================
-   CUSTOM OVERRIDES
-   ------------------------------------------------------------
-   Rules here are NOT wrapped in a CSS @layer. Tailwind v4 puts
-   all of its styles inside cascade layers (theme, base,
-   components, utilities), and unlayered CSS always wins over
-   layered CSS — regardless of specificity or order.
-
-   So any rule in this file beats any Tailwind class, with no
-   !important needed. The one exception: an inline style=""
-   attribute on an element can only be beaten with !important.
-   ============================================================ */
-
-/* Example 1: override what a Tailwind utility does everywhere.
-   Uncomment to change every element using .font-display.
-
-.font-display {
-  letter-spacing: 0.1em;
-}
-*/
-
-/* Example 2: restyle a global element site-wide.
-
-::selection {
-  background-color: #1c1c1c;
-  color: #ffffff;
-}
-*/
+/* Custom utilities like @utility pad-* can't live here — Tailwind only
+   processes its directives in globals.css (the entry stylesheet).
+   See the pad-* definition there. This file remains the unlayered
+   override spot: plain CSS rules written here beat every Tailwind
+   class, with no !important needed. */
