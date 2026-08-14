@@ -1,22 +1,11 @@
 import Link from "next/link";
-
-interface HeroStat {
-  value: string;
-  label: string;
-}
+import HeroStats from "@/components/sections/HeroStats";
 
 interface HeroProps {
   videoSrc?: string;
   imageSrc?: string;
   poster?: string;
 }
-
-const STATS: HeroStat[] = [
-  { value: "40", label: "Private acres" },
-  { value: "11k", label: "Sq ft indoor" },
-  { value: "500", label: "Guest capacity" },
-  { value: "5★", label: "Avg rating" },
-];
 
 export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
   return (
@@ -89,14 +78,14 @@ export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
             <span className="block">overlooked.</span>
           </h1>
 
-          // Body
+          {/* Body */}
           <p className="font-body text-[13px] sm:text-[14px] font-light leading-[1.9] text-white/80 max-w-[420px] mb-8">
             Kansas City&apos;s most technically advanced event venue. Architectural
             design. Cinematic lighting. Immersive sound. 40 private acres —
             exclusively yours.
           </p>
 
-          // Actions
+          {/* Actions */}
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <Link
               href="https://calendly.com/thehaveneventspace"
@@ -115,22 +104,8 @@ export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
           </div>
         </div>
 
-        // Stats strip
-        <div className="grid grid-cols-4 border-t border-white/15 bg-black/40 backdrop-blur-sm">
-          {STATS.map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`px-4 py-5 text-center ${i < 3 ? "border-r border-white/15" : ""}`}
-            >
-              <div className="font-display text-[22px] sm:text-[28px] tracking-[0.05em] text-white leading-none">
-                {stat.value}
-              </div>
-              <div className="font-body text-[7px] sm:text-[8px] font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase text-white/60 mt-1">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
+        {/* Stats strip */}
+        {/* <HeroStats /> */}
       </div>
     </section>
   );

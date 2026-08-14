@@ -42,12 +42,12 @@ of this change. (Re-add it when `<HeroStats />` is re-enabled.)
 
 ## Decisions
 
-| Decision | Choice | Why |
-| --- | --- | --- |
-| File name | `custom.css` | User preference — reads as the hand-written CSS spot |
-| Mechanism | Unlayered file imported last | Guaranteed to beat all Tailwind layers, no `!important` |
-| Rejected: region at bottom of `globals.css` | No | A region can later be accidentally moved into `@layer`, silently breaking the guarantee |
-| Rejected: `@utility` / `!important` | No | `@utility` is for defining new utilities, not overriding; `!important` fights future overrides |
+| Decision                                    | Choice                       | Why                                                                                            |
+| ------------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------- |
+| File name                                   | `custom.css`                 | User preference — reads as the hand-written CSS spot                                           |
+| Mechanism                                   | Unlayered file imported last | Guaranteed to beat all Tailwind layers, no `!important`                                        |
+| Rejected: region at bottom of `globals.css` | No                           | A region can later be accidentally moved into `@layer`, silently breaking the guarantee        |
+| Rejected: `@utility` / `!important`         | No                           | `@utility` is for defining new utilities, not overriding; `!important` fights future overrides |
 
 ## Verification
 
