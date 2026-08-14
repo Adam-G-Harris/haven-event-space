@@ -1,5 +1,4 @@
 import Link from "next/link";
-import HeroStats from "@/components/sections/HeroStats";
 
 interface HeroProps {
   videoSrc?: string;
