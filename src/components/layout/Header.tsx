@@ -96,7 +96,7 @@ export default function Header() {
       {/* Mobile overlay menu */}
       {menuOpen && (
         <div className="fixed inset-0 z-[60] bg-ink flex flex-col">
-          <div className="flex items-center justify-between h-[60px] border-b border-rule-dark">
+          <div className="flex items-center justify-between px-6 h-[60px] border-b border-rule-dark">
             <div className="font-display text-[26px] tracking-[0.12em] uppercase text-canvas">
               The Haven
             </div>
