@@ -70,7 +70,7 @@ export default function AvailabilityPage() {
         <div className="px-6 md:px-10 max-w-[1600px] mx-auto">
           <Reveal>
             <div className="flex items-center gap-4 mb-10">
-              <div className="w-8 h-px bg-rule-dark" />
+              <div className="w-8 h-px bg-champagne" />
               <span className="font-body text-[9px] font-medium tracking-[0.4em] uppercase text-ink-mid">
                 Live calendar
               </span>

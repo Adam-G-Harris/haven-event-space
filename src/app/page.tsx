@@ -10,7 +10,7 @@ import CTASection from "@/components/sections/CTASection";
 export default function HomePage() {
   return (
     <main>
-      <Hero videoSrc="/public/haven_hero.mp4"/>
+      <Hero />
       <AwardsBar />
       <StatementSection />
       <SpecsGrid />

@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
-/* Static color tokens */
+/* Color tokens — Wine Cellar palette */
 @theme {
-  --color-ink: #0a0a0a;
-  --color-ink-mid: #555555;
-  --color-ink-low: #888888;
-  --color-ink-faint: #333333;
-  --color-canvas: #ffffff;
-  --color-rule: #e8e8e8;
-  --color-rule-dark: #1c1c1c;
-  --color-surface-dark: #161616;
-  --color-surface-darker: #0d0d0d;
+  --color-ink: #33151e;
+  --color-ink-mid: #7a5c63;
+  --color-ink-low: #a98a90;
+  --color-ink-faint: #3a1b24;
+  --color-canvas: #f5eee3;
+  --color-rule: #eadfc8;
+  --color-rule-dark: #4a2a33;
+  --color-surface-dark: #2b1219;
+  --color-surface-darker: #16090e;
+  --color-champagne: #e2c391;
 }
 
 /* Font references (CSS vars set by next/font on <html>) */

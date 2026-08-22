@@ -7,7 +7,11 @@ interface HeroProps {
   poster?: string;
 }
 
-export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
+export default function Hero({
+  videoSrc = "/haven_hero.mp4",
+  imageSrc,
+  poster,
+}: HeroProps) {
   return (
     <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-ink">
       {/* Background media */}
@@ -62,7 +66,7 @@ export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
       <div className="relative z-10 h-full flex flex-col justify-end">
         <div className="px-6 md:px-10 pb-10 lg:pb-14">
           {/* Tag */}
-          <p className="font-body text-[9px] font-medium tracking-[0.2em] sm:tracking-[0.45em] uppercase text-white/70 border-l-2 border-white pl-3 leading-relaxed mb-6 truncate max-w-[90vw]">
+          <p className="font-body text-[9px] font-medium tracking-[0.2em] sm:tracking-[0.45em] uppercase text-white/70 border-l-2 border-champagne pl-3 leading-relaxed mb-6 truncate max-w-[90vw]">
             Louisburg, Kansas · Est. 2021 · 40 Private Acres
           </p>
 
@@ -70,7 +74,7 @@ export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
           <h1 className="font-display text-[clamp(56px,11vw,128px)] leading-[0.9] tracking-[0.02em] uppercase text-white mb-6 max-w-[1100px]">
             <span className="block">No</span>
             <em
-              className="font-serif not-italic block"
+              className="font-serif not-italic block text-champagne"
               style={{ fontStyle: "italic" }}
             >
               detail
@@ -91,7 +95,7 @@ export default function Hero({ videoSrc, imageSrc, poster }: HeroProps) {
               href="https://calendly.com/thehaveneventspace"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-body text-[10px] font-medium tracking-[0.22em] uppercase bg-white text-ink px-7 py-3 hover:bg-rule transition-colors"
+              className="inline-flex items-center justify-center font-body text-[10px] font-medium tracking-[0.22em] uppercase bg-champagne text-ink px-7 py-3 hover:bg-champagne/85 transition-colors"
             >
               Schedule a Tour
             </Link>

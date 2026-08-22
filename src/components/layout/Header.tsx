@@ -77,7 +77,7 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className={`hidden sm:inline-flex items-center font-body text-[10px] font-medium tracking-[0.2em] uppercase px-5 py-[10px] transition-colors duration-300 ${
-                transparent ? "bg-white text-ink hover:bg-rule" : "bg-ink text-canvas hover:bg-ink-faint"
+                transparent ? "bg-champagne text-ink hover:bg-champagne/85" : "bg-ink text-canvas hover:bg-ink-faint"
               }`}
             >
               Schedule a Tour
