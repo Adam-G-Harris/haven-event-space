@@ -66,7 +66,7 @@ export default function Hero({
       <div className="relative z-10 h-full flex flex-col justify-end">
         <div className="px-6 md:px-10 pb-10 lg:pb-14">
           {/* Tag */}
-          <p className="font-body text-[9px] font-medium tracking-[0.2em] sm:tracking-[0.45em] uppercase text-white/70 border-l-2 border-champagne pl-3 leading-relaxed mb-6 truncate max-w-[90vw]">
+          <p className="font-body text-[9px] font-medium tracking-[0.2em] sm:tracking-[0.45em] uppercase text-white/70 border-l-2 border-white pl-3 leading-relaxed mb-6 truncate max-w-[90vw]">
             Louisburg, Kansas · Est. 2021 · 40 Private Acres
           </p>
 
@@ -74,7 +74,7 @@ export default function Hero({
           <h1 className="font-display text-[clamp(56px,11vw,128px)] leading-[0.9] tracking-[0.02em] uppercase text-white mb-6 max-w-[1100px]">
             <span className="block">No</span>
             <em
-              className="font-serif not-italic block text-champagne"
+              className="font-serif not-italic block"
               style={{ fontStyle: "italic" }}
             >
               detail
@@ -88,24 +88,6 @@ export default function Hero({
             design. Cinematic lighting. Immersive sound. 40 private acres —
             exclusively yours.
           </p>
-
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-            <Link
-              href="https://calendly.com/thehaveneventspace"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center font-body text-[10px] font-medium tracking-[0.22em] uppercase bg-champagne text-ink px-7 py-3 hover:bg-champagne/85 transition-colors"
-            >
-              Schedule a Tour
-            </Link>
-            <Link
-              href="/availability"
-              className="inline-flex items-center justify-center font-body text-[10px] font-light tracking-[0.22em] uppercase text-white border border-white/40 px-7 py-3 hover:border-white hover:bg-white/10 transition-colors"
-            >
-              Check Availability
-            </Link>
-          </div>
         </div>
 
         {/* Stats strip */}

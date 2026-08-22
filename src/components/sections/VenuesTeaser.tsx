@@ -36,7 +36,7 @@ export default function VenuesTeaser() {
           <div className="flex items-end justify-between mb-16 gap-6 flex-wrap">
             <div>
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-8 h-px bg-champagne" />
+                <div className="w-8 h-px bg-rule-dark" />
                 <span className="font-body text-[9px] font-medium tracking-[0.4em] uppercase text-ink-mid">
                   The Haven Properties
                 </span>

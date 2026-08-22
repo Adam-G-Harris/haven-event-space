@@ -171,7 +171,7 @@ export default function PricingPage() {
         <div className="px-6 md:px-10 max-w-[1600px] mx-auto">
           <Reveal>
             <div className="flex items-center gap-4 mb-12">
-              <div className="w-8 h-px bg-champagne" />
+              <div className="w-8 h-px bg-rule-dark" />
               <span className="font-body text-[9px] font-medium tracking-[0.4em] uppercase text-ink-mid">
                 Bar packages
               </span>
