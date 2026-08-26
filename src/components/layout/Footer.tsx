@@ -1,10 +1,5 @@
 import Link from "next/link";
-import {
-  IconBrandInstagram,
-  IconBrandFacebook,
-  IconBrandTiktok,
-  IconBrandYoutube,
-} from "@tabler/icons-react";
+import { SOCIALS } from "./socials";
 
 const QUICK_LINKS = [
   { label: "Gallery", href: "/gallery" },
@@ -15,13 +10,6 @@ const QUICK_LINKS = [
   { label: "Other Venues", href: "/locations" },
   { label: "Contact", href: "/contact" },
   { label: "Careers", href: "/careers" },
-];
-
-const SOCIALS = [
-  { icon: IconBrandInstagram, href: "https://www.instagram.com/thehavenkc", label: "Instagram" },
-  { icon: IconBrandFacebook, href: "https://www.facebook.com/thehavenkc", label: "Facebook" },
-  { icon: IconBrandTiktok, href: "https://www.tiktok.com/@thehaveneventspace", label: "TikTok" },
-  { icon: IconBrandYoutube, href: "https://www.youtube.com/channel/UClT7tf5gPqvwX86N7fOx35Q", label: "YouTube" },
 ];
 
 export default function Footer() {
