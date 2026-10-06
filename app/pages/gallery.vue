@@ -53,7 +53,7 @@ const PHOTOS = [
     <section class="video">
       <UiReveal :y="6">
         <div class="video__box">
-          <IconPlayerPlay :size="48" :stroke="0.75" />
+          <IconPlayerPlay :size="48" stroke="0.75" />
           <span class="video__label">Virtual tour video // PLACEHOLDER</span>
         </div>
       </UiReveal>
@@ -65,7 +65,7 @@ const PHOTOS = [
         <div class="photos__grid">
           <div v-for="photo in PHOTOS" :key="photo.label" class="photos__cell">
             <div class="placeholder photo" :class="`photo--${photo.size}`">
-              <IconPhoto :size="20" :stroke="1" />
+              <IconPhoto :size="20" stroke="1" />
               <span class="photo__label">{{ photo.label }}</span>
             </div>
           </div>

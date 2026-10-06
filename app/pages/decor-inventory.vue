@@ -44,7 +44,7 @@ const ITEMS = [
           <div class="items">
             <div v-for="item in ITEMS" :key="item.name" class="item">
               <div class="placeholder item__photo">
-                <IconPhoto :size="20" :stroke="1" />
+                <IconPhoto :size="20" stroke="1" />
                 <span class="item__photo-label">Photo coming</span>
               </div>
               <div class="item__info">

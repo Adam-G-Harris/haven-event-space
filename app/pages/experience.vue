@@ -126,7 +126,7 @@ const PHOTO_LABELS = ["Main hall", "Outdoor ceremony", "Bridal suite", "Groom su
     <!-- Venue photo strip (placeholders) -->
     <section class="photo-strip">
       <div v-for="label in PHOTO_LABELS" :key="label" class="placeholder photo-strip__tile">
-        <IconPhoto :size="20" :stroke="1" />
+        <IconPhoto :size="20" stroke="1" />
         <span class="placeholder__label">{{ label }}</span>
       </div>
     </section>
