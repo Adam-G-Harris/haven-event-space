@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconMenu2, IconX } from "@tabler/icons-react";
+import { AnimatePresence, motion } from "framer-motion";
 import { SOCIALS } from "./socials";
 
 const NAV_LINKS = [
@@ -21,7 +22,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const transparent = isHome && !scrolled;
+  const transparent = isHome && !scrolled && !menuOpen;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -51,7 +52,7 @@ export default function Header() {
           transparent ? "bg-transparent border-b border-transparent" : "bg-canvas border-b border-rule"
         }`}
       >
-        <div className="flex items-center justify-between px-6 md:px-10 h-[60px] pad-8">
+        <div className="flex items-center justify-between px-6 md:px-10 h-[60px] pad-12">
           {/* Wordmark */}
           <Link href="/" className="flex-shrink-0">
             <div
@@ -60,13 +61,6 @@ export default function Header() {
               }`}
             >
               The Haven
-            </div>
-            <div
-              className={`font-body text-[9px] font-medium tracking-[0.35em] uppercase leading-none mt-[2px] transition-colors duration-300 ${
-                transparent ? "text-white/70" : "text-ink-mid"
-              }`}
-            >
-              Louisburg, KS
             </div>
           </Link>
 
@@ -98,63 +92,72 @@ export default function Header() {
             >
               Schedule a Tour
             </Link>
-            <button
-              className={`flex items-center gap-3 p-1 transition-colors duration-300 ${
-                transparent ? "text-white" : "text-ink"
-              }`}
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
-              aria-expanded={menuOpen}
-            >
-              <span className="font-body text-[10px] font-medium tracking-[0.22em] uppercase">
-                {menuOpen ? "Close" : "Menu"}
-              </span>
+            {/* Spacer preserving the menu trigger's layout width; the real button
+                renders below as its own fixed element so it stacks above the
+                full-page overlay, which sits above the header. */}
+            <span className="invisible flex items-center gap-3 p-1" aria-hidden="true">
+              <span className="font-body text-[10px] font-medium tracking-[0.22em] uppercase">Menu</span>
               <IconMenu2 size={22} />
-            </button>
+            </span>
           </div>
         </div>
       </header>
 
+      {/* Menu trigger: fixed independently of header/overlay so it always
+          renders above the full-page overlay (a sibling fixed element can't
+          be out-z-indexed from inside the header's own stacking context). */}
+      <div className="fixed top-0 right-0 z-[60] h-24 flex items-center pr-6 md:pr-10">
+        <button
+          className={`flex items-center gap-3 p-1 transition-colors duration-300 ${
+            transparent ? "text-white" : "text-ink"
+          }`}
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+        >
+          <span className="font-body text-[10px] font-medium tracking-[0.22em] uppercase">
+            {menuOpen ? "Close" : "Menu"}
+          </span>
+          {menuOpen ? <IconX size={22} /> : <IconMenu2 size={22} />}
+        </button>
+      </div>
+
       {/* Full-screen overlay menu */}
-      {menuOpen && (
-        <div className="fixed inset-0 z-[60] bg-ink flex flex-col">
-          <div className="flex items-center justify-between px-6 h-[60px] border-b border-rule-dark">
-            <div className="font-display text-[26px] tracking-[0.12em] uppercase text-canvas">
-              The Haven
-            </div>
-            <button
-              onClick={() => setMenuOpen(false)}
-              className="text-canvas"
-              aria-label="Close menu"
-            >
-              <IconX size={22} />
-            </button>
-          </div>
-          <nav className="flex flex-col px-6 py-12 gap-8">
-            {NAV_LINKS.map((link) => (
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="fixed inset-0 z-[55] flex flex-col bg-canvas"
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <nav className="flex flex-col px-6 pt-28 pb-12 gap-8">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="font-display text-[36px] tracking-[0.06em] uppercase hover:text-ink-low transition-colors transparent"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <div className="px-6 pb-10 mt-auto">
               <Link
-                key={link.href}
-                href={link.href}
+                href="https://calendly.com/thehaveneventspace"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="font-display text-[36px] tracking-[0.06em] uppercase text-canvas hover:text-ink-low transition-colors"
+                className="inline-flex items-center font-body text-[10px] font-medium tracking-[0.2em] uppercase text-ink px-6 py-3 transparent"
               >
-                {link.label}
+                Schedule a Tour
               </Link>
-            ))}
-          </nav>
-          <div className="px-6 pb-10 mt-auto">
-            <Link
-              href="https://calendly.com/thehaveneventspace"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
-              className="inline-flex items-center font-body text-[10px] font-medium tracking-[0.2em] uppercase bg-canvas text-ink px-6 py-3"
-            >
-              Schedule a Tour
-            </Link>
-          </div>
-        </div>
-      )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

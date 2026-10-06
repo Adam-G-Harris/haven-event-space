@@ -27,10 +27,9 @@ export default function Hero({
             playsInline
           />
         ) : imageSrc ? (
-          // eslint-disable-next-line @next/next/no-img-element
+          // If there is no media display an icon
           <img src={imageSrc} alt="" className="w-full h-full object-cover" />
         ) : (
-          // PLACEHOLDER: swap for <video videoSrc="..."> once real footage is ready
           <div className="w-full h-full bg-surface-dark flex flex-col items-center justify-center gap-3">
             <svg
               className="w-10 h-10 text-ink-faint"
@@ -53,7 +52,6 @@ export default function Hero({
               />
             </svg>
             <span className="font-body text-[9px] font-medium tracking-[0.3em] uppercase text-ink-faint">
-              Full-bleed hero video // PLACEHOLDER
             </span>
           </div>
         )}

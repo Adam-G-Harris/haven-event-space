@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "@/components/ui/PageHeader";
 import Reveal from "@/components/ui/Reveal";
@@ -114,15 +115,40 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 border-l border-t border-rule">
             {[
-              { org: "The Knot", award: "Best of Weddings", years: "2022, 2023, 2024" },
-              { org: "WeddingWire", award: "Couples' Choice Award", years: "2022, 2023, 2024" },
-              { org: "WedKC", award: "Venue of the Year Finalist", years: "2023, 2024" },
+              {
+                org: "The Knot",
+                icon: "/awards/the-knot.png",
+                iconWidth: 560,
+                iconHeight: 140,
+                award: "Best of Weddings",
+                years: "2022, 2023, 2024",
+              },
+              {
+                org: "WeddingWire",
+                icon: "/awards/weddingwire.png",
+                iconWidth: 560,
+                iconHeight: 101,
+                award: "Couples' Choice Award",
+                years: "2022, 2023, 2024",
+              },
+              {
+                org: "WedKC",
+                icon: "/awards/wedkc.png",
+                iconWidth: 250,
+                iconHeight: 193,
+                award: "Venue of the Year Finalist",
+                years: "2023, 2024",
+              },
             ].map((a, i) => (
               <Reveal key={a.org} delay={i * 0.08}>
                 <div className="border-r border-b border-rule px-8 py-10">
-                  <div className="font-body text-[9px] font-medium tracking-[0.35em] uppercase text-ink-mid mb-3">
-                    {a.org}
-                  </div>
+                  <Image
+                    src={a.icon}
+                    alt={`${a.org} logo`}
+                    width={a.iconWidth}
+                    height={a.iconHeight}
+                    className="h-6 w-auto object-contain object-left mb-4"
+                  />
                   <div className="font-display text-[20px] tracking-[0.06em] uppercase text-ink mb-2">
                     {a.award}
                   </div>
