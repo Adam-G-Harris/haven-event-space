@@ -54,3 +54,204 @@ video {
   display: block;
   max-width: 100%;
 }
+
+/* ------------------------------------------------------------------
+   Shared patterns, used across pages. Page-specific styles live in
+   each component's <style scoped> block.
+------------------------------------------------------------------- */
+
+/* Page container: horizontal padding + max width */
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Vertical section spacing */
+.section {
+  padding-block: 5rem;
+  border-bottom: 1px solid var(--color-rule);
+  background: var(--color-canvas);
+}
+.section--dark {
+  background: var(--color-ink);
+  border-bottom-color: var(--color-rule-dark);
+}
+.section--darker {
+  background: var(--color-surface-darker);
+  border-bottom-color: var(--color-rule-dark);
+}
+@media (min-width: 1024px) {
+  .section {
+    padding-block: 7rem;
+  }
+}
+
+/* Small uppercase label */
+.eyebrow {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-ink-mid);
+}
+
+/* Short line + eyebrow, used to introduce a section */
+.label-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.label-line::before {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: var(--color-rule);
+}
+.section--dark .label-line::before,
+.section--darker .label-line::before {
+  background: var(--color-rule-dark);
+}
+
+/* Big display headline; wrap the italic part in <em> */
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+.display em {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+.section--dark .display,
+.section--darker .display {
+  color: var(--color-canvas);
+}
+
+/* Body paragraph */
+.body-text {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.9;
+  color: var(--color-ink-low);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.btn--sm {
+  padding: 0.75rem 1.75rem;
+}
+.btn--solid {
+  color: var(--color-canvas);
+  background: var(--color-ink);
+}
+.btn--solid:hover {
+  background: var(--color-ink-faint);
+}
+.btn--light {
+  color: var(--color-ink);
+  background: var(--color-canvas);
+}
+.btn--light:hover {
+  background: var(--color-rule);
+}
+.btn--outline {
+  font-weight: 300;
+  color: var(--color-ink-mid);
+  border: 1px solid var(--color-rule);
+}
+.btn--outline:hover {
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.section--dark .btn--outline,
+.section--darker .btn--outline {
+  border-color: var(--color-rule-dark);
+}
+.section--dark .btn--outline:hover,
+.section--darker .btn--outline:hover {
+  color: var(--color-canvas);
+  border-color: var(--color-ink-mid);
+}
+
+/* Bordered grid of cells (top/left on the grid, right/bottom on each cell) */
+.cells {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid var(--color-rule);
+  border-left: 1px solid var(--color-rule);
+}
+.cell {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid var(--color-rule);
+  border-bottom: 1px solid var(--color-rule);
+}
+.section--dark .cells,
+.section--darker .cells,
+.cells--dark {
+  border-color: var(--color-rule-dark);
+}
+.section--dark .cell,
+.section--darker .cell,
+.cells--dark .cell {
+  border-color: var(--color-rule-dark);
+}
+@media (min-width: 640px) {
+  .cells--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cells--3-sm {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .cells--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cells--2-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .cells--3-lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Placeholder tile for photos that haven't been added yet */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-surface-dark);
+  color: var(--color-ink-faint);
+}
+.placeholder__label {
+  padding-inline: 1rem;
+  font-size: 8px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-align: center;
+  text-transform: uppercase;
+}

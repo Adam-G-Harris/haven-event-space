@@ -140,13 +140,13 @@ watch(menuOpen, (open) => {
   border-bottom-color: transparent;
 }
 
-/* Matches the current site: 3rem padding all round (the pad-12 utility). */
+/* Same height as the menu trigger, same side padding as .container */
 .header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
-  padding: 3rem;
+  height: 6rem;
+  padding-inline: 1.5rem;
 }
 
 .header__wordmark {
@@ -301,6 +301,9 @@ watch(menuOpen, (open) => {
 }
 
 @media (min-width: 768px) {
+  .header__inner {
+    padding-inline: 2.5rem;
+  }
   .header__actions {
     gap: 1.5rem;
   }
