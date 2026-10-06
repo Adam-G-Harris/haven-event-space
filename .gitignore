@@ -42,3 +42,8 @@ next-env.d.ts
 
 # superpowers workflow scratch
 /.superpowers/
+
+# nuxt
+.nuxt
+.output
+.data
